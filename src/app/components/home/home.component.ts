@@ -7,8 +7,12 @@ import {SpotifyService} from '../../services/spotify.service';
 })
 export class HomeComponent {
 
+  nuevasCanciones: any[] = [];
+
   constructor(private spotify: SpotifyService) {
-    this.spotify.getNewRelases();
+    this.spotify.getNewRelases().subscribe((data: any) => {
+      this.nuevasCanciones = data.albums.items;
+    });
   }
 
 }
