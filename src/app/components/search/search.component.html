@@ -4,16 +4,7 @@
   </div>
 </div>
 
-<div class="card-columns m-5">
-  <div class="card" *ngFor="let artista of artistas">
-    <img [src]="artista.images | noimage " class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">{{artista.name}}</h5>
-      <p class="card-text">
-        <a href="#" *ngFor="let genero of artista.genres" class="badge badge-success">{{genero| uppercase}}</a>
-      </p>
-    </div>
-  </div>
-</div>
+<app-tarjetas [items]="artistas"></app-tarjetas>
+
 
 
