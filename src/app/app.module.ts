@@ -13,13 +13,17 @@ import {NavbarComponent} from './components/shared/navbar/navbar.component';
 /* importamos las rutas y las declaramos en los imports con RouterModule.forRoot(ROUTES) */
 import {ROUTES} from './app.route';
 
+/*PIPES*/
+import { NoimagePipe } from './pipes/noimage.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SearchComponent,
     ArtistaComponent,
-    NavbarComponent
+    NavbarComponent,
+    NoimagePipe
   ],
   imports: [
     BrowserModule,
