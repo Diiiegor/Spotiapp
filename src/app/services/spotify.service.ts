@@ -8,7 +8,6 @@ import {map} from 'rxjs/operators';
 export class SpotifyService {
 
   constructor(private http: HttpClient) {
-    console.log('Spotify service listo');
   }
 
   /*Ejecuta peticiones get al api de spotify*/
@@ -16,7 +15,7 @@ export class SpotifyService {
     const url = `https://api.spotify.com/v1/${query}`;
 
     const headers = new HttpHeaders({
-      Authorization: 'Bearer BQDf9AfM7K2YcpkU2-FWIRsBsh0_1y92OahPjTMqOoTLM3Q3H10Y-cp1HeJF_rDPnGrLNJJ_IDlN2laNh2A'
+      Authorization: 'Bearer BQD1pMPCCphXnuhBxI1cfuppre5vJagM1tYwEzXywGIBje8mCuTd7g6MLe5y6yDr31ZZ0UsVX2epwt42yfQ'
     });
     return this.http.get(url, {headers});
   }
@@ -29,8 +28,22 @@ export class SpotifyService {
   }
 
   /*busca un artista*/
-  getArtista(termino: string) {
+  getArtistas(termino: string) {
     return this.getQuery(`search?q=${termino}&type=artist&limit=15`)
       .pipe(map((data: any) => data.artists.items));
   }
+
+  /*Trae un artista por id*/
+  getArtista(id: string) {
+    return this.getQuery(`artists/${id}`);
+  }
+
+
+  /*Trae el top de canciones de un artista*/
+  getTopTracks(id: string) {
+    return this.getQuery(`artists/${id}/top-tracks?country=US`)
+      .pipe(map((data: any) => data.tracks));
+  }
+
+
 }
