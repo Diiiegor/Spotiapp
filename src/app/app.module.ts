@@ -9,14 +9,15 @@ import {HomeComponent} from './components/home/home.component';
 import {SearchComponent} from './components/search/search.component';
 import {ArtistaComponent} from './components/artista/artista.component';
 import {NavbarComponent} from './components/shared/navbar/navbar.component';
+import {TarjetasComponent} from './components/tarjetas/tarjetas.component';
+import {LoadingComponent} from './components/shared/loading/loading.component';
 
 /* importamos las rutas y las declaramos en los imports con RouterModule.forRoot(ROUTES) */
 import {ROUTES} from './app.route';
 
 /*PIPES*/
-import { NoimagePipe } from './pipes/noimage.pipe';
-import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
-import { LoadingComponent } from './components/shared/loading/loading.component';
+import {NoimagePipe} from './pipes/noimage.pipe';
+import {DomseguroPipe} from './pipes/domseguro.pipe';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     ArtistaComponent,
     NavbarComponent,
     NoimagePipe,
+    DomseguroPipe,
     TarjetasComponent,
     LoadingComponent
   ],
